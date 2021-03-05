@@ -43,16 +43,16 @@ string Playlist::getNome()
 }
 
 /** Método para acessar a lista
-    * @return lista - Lista* - lista de musicas
-    */
+* @return lista - Lista* - lista de musicas
+*/
 Lista* Playlist::getLista()
 {
     return lista;
 }
 
 /** Método para setar lista
-    * @param lista - Lista* - lista de musicas
-    */
+* @param lista - Lista* - lista de musicas
+*/
 void Playlist::setNome(Lista *lista)
 {
     this->lista = lista;
@@ -65,6 +65,10 @@ void Playlist::setNome(Lista *lista)
 void Playlist::adicionarMusicaPlaylist(string nome, string titulo)
 {
     lista->inserirNoInicio(nome, titulo);
+}
+
+void Playlist::adicionarMusicaPlaylist(Playlist &p) {
+    // lista->inserirNoInicio(*p);
 }
 
 /** Método para remover musica na lista

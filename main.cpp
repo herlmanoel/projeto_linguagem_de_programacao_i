@@ -48,22 +48,14 @@ int main()
 
     // ------------------------------------------------------------- Parte 2
     // g++ main.cpp util.cpp Lista.cpp  -Wall -o prog && prog
-    // Lista* l = new Lista();
-    
-    // Lista* l1 = new Lista();
-    // l1->inserirNoInicio("4", "4");
-    // l1->inserirNoInicio("3", "3");
-    // l1->inserirNoInicio("2", "2");
-    // l1->inserirNoInicio("1", "1");
-    // // ------------------------
-    // l->inserirNoInicio("8", "8");
-    // l->inserirNoInicio("7", "7");
-    // l->inserirNoInicio("6", "6");
-    // l->inserirNoInicio("5", "5");
+    Lista l;
+    Lista* l1= new Lista();
+    l1->inserirNoInicio("4", "4"); l1->inserirNoInicio("3", "3"); l1->inserirNoInicio("2", "2");
+    l.inserirNoInicio("8", "8"); l.inserirNoInicio("7", "7"); l.inserirNoInicio("6", "6"); 
 
-    // // teste add lista a lista
-    // l->inserirNoInicio(l1);
-    // l->imprimir();
+    // teste add lista a lista
+    l1->inserirNoInicio(l);
+    l1->imprimir();
 
     // Lista *musicas_para_remover = new Lista();
     // musicas_para_remover->inserirNoInicio("1", "1");

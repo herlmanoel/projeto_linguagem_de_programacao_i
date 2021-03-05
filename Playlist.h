@@ -29,6 +29,7 @@ public:
     Lista *getLista();
     void setNome(Lista *lista);
     void adicionarMusicaPlaylist(string nome, string titulo);
+    void adicionarMusicaPlaylist(Playlist &p);
     void removerMusica(string nome, string titulo);
     Musica *getProximaMusica(Musica *musica);
     ~Playlist();

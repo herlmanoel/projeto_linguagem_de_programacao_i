@@ -30,7 +30,7 @@ public:
     void setPrimeira(Musica *m);
     Musica *getUltima();
     void inserirNoInicio(string nome, string titulo);
-    void inserirNoInicio(Lista *listaDeMusica);
+    void inserirNoInicio(Lista &listaDeMusica);
     void inserirNoFinal(string nome, string titulo);
     void imprimir();
     Musica *buscarPeloNomeTitulo(string nome, string titulo);

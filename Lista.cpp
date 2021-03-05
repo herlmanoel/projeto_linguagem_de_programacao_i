@@ -82,10 +82,10 @@ void Lista::inserirNoInicio(string nome, string titulo)
 }
 
 // -------------------------------------------------------------------
-void Lista::inserirNoInicio(Lista *listaDeMusica)
+void Lista::inserirNoInicio(Lista &listaDeMusica)
 {
-    listaDeMusica->getUltima()->setProxima(primeira);
-    primeira = listaDeMusica->getPrimeira();
+    listaDeMusica.getUltima()->setProxima(primeira);
+    primeira = listaDeMusica.getPrimeira();
 }
 
 /** Método para adicionar musica no final da lista
