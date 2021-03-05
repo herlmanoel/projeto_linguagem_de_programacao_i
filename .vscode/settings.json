@@ -10,6 +10,7 @@
         "string_view": "cpp",
         "initializer_list": "cpp",
         "random": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "iosfwd": "cpp"
     }
 }

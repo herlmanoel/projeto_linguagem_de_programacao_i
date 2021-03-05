@@ -58,6 +58,10 @@ Musica *Lista::getUltima()
     return NULL;
 }
 
+void Lista::setPrimeira(Musica *m) { 
+    primeira = m;
+}
+
 /** Método para adicionar musica no inicio da lista
         * @param nome - string - nome do artista
         * @param titulo - string - titulo da musica
@@ -224,6 +228,40 @@ void Lista::remover(Lista *listaDeMusica)
             musica = musica->getProxima();
         }
         musica_excluir = musica_excluir->getProxima();
+    }
+}
+
+Lista Lista::operator+(Lista &lista){
+    // parcialmente feita
+    Lista nova_lista;
+    nova_lista.setPrimeira(primeira);
+    nova_lista.getUltima()->setProxima(lista.getPrimeira());
+    return nova_lista;
+}
+
+void Lista::removerUltima() {
+    Musica* musica = primeira;
+    Musica* anterior = musica;
+    while(musica != NULL) {
+        if(musica->getProxima() == NULL) {
+            anterior->setProxima(NULL);
+        }
+        anterior = musica;
+        musica = musica->getProxima();        
+    }
+}
+
+void Lista::operator>>(Musica *m) {
+    if(primeira != NULL) {
+        m->setNome(getUltima()->getNome());
+        m->setTitulo(getUltima()->getTitulo());
+        Lista::removerUltima();
+    }
+}
+
+void Lista::operator<<(Musica* m) {
+    if(primeira != NULL) {
+        getUltima()->setProxima(m);
     }
 }
 

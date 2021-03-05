@@ -27,6 +27,7 @@ public:
     ~Lista();
     Lista(const Lista& l);
     Musica *getPrimeira();
+    void setPrimeira(Musica *m);
     Musica *getUltima();
     void inserirNoInicio(string nome, string titulo);
     void inserirNoInicio(Lista *listaDeMusica);
@@ -35,6 +36,10 @@ public:
     Musica *buscarPeloNomeTitulo(string nome, string titulo);
     void remover(string nome, string titulo);
     void remover(Lista *listaDeMusica);
+    void removerUltima();
+    Lista operator+(Lista &lista);
+    void operator>>(Musica *m);
+    void operator<<(Musica *m);
 };
 
 #endif

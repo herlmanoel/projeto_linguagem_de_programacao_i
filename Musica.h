@@ -63,6 +63,14 @@ public:
     {
         proxima = musica;
     }
+    void setNome(string n)
+    {
+        nome = n;
+    }
+    void setTitulo(string t)
+    {
+        titulo = t;
+    }
 
     /** Método para acessar a proxima Música
         * @return proxima - Musica*
@@ -72,6 +80,10 @@ public:
         return proxima;
     }
 
+    void imprimir(){
+        cout << "nome: " << nome << " titulo: " << titulo << endl;
+    }
+
     /** Método destructor
         * Liberar o espaço da musica 
         */
@@ -79,6 +91,7 @@ public:
     {
         delete proxima;
     }
+
 };
 
 #endif

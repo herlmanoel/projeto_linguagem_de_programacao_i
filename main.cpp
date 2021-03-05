@@ -43,38 +43,70 @@ int main()
     // playlists[0]->adicionarMusicaPlaylist("nem eu seiaaaaaa", "jjjjja");
     // playlists[1]->adicionarMusicaPlaylist("nem eu seibbbbbbb", "kkkkkja");
     // playlists[2]->adicionarMusicaPlaylist("nem eu seiccccccccc", "ooooooooja");
+
+    // ------------------------------------------------------------- Parte 2
     // g++ main.cpp util.cpp Lista.cpp  -Wall -o prog && prog
-    Lista* l = new Lista();
+    // Lista* l = new Lista();
     
-    Lista* l1 = new Lista();
-    l1->inserirNoInicio("4", "4");
-    l1->inserirNoInicio("3", "3");
-    l1->inserirNoInicio("2", "2");
-    l1->inserirNoInicio("1", "1");
-    // ------------------------
-    l->inserirNoInicio("8", "8");
-    l->inserirNoInicio("7", "7");
-    l->inserirNoInicio("6", "6");
-    l->inserirNoInicio("5", "5");
+    // Lista* l1 = new Lista();
+    // l1->inserirNoInicio("4", "4");
+    // l1->inserirNoInicio("3", "3");
+    // l1->inserirNoInicio("2", "2");
+    // l1->inserirNoInicio("1", "1");
+    // // ------------------------
+    // l->inserirNoInicio("8", "8");
+    // l->inserirNoInicio("7", "7");
+    // l->inserirNoInicio("6", "6");
+    // l->inserirNoInicio("5", "5");
 
-    // teste add lista a lista
-    l->inserirNoInicio(l1);
-    l->imprimir();
+    // // teste add lista a lista
+    // l->inserirNoInicio(l1);
+    // l->imprimir();
 
-    Lista *musicas_para_remover = new Lista();
-    musicas_para_remover->inserirNoInicio("1", "1");
-    musicas_para_remover->inserirNoInicio("3", "3");
-    musicas_para_remover->inserirNoInicio("8", "8");
+    // Lista *musicas_para_remover = new Lista();
+    // musicas_para_remover->inserirNoInicio("1", "1");
+    // musicas_para_remover->inserirNoInicio("3", "3");
+    // musicas_para_remover->inserirNoInicio("8", "8");
 
-    l->remover(musicas_para_remover);
-    l->imprimir();
+    // l->remover(musicas_para_remover);
+    // l->imprimir();
+
+    // Lista paraCopiar;
+    // paraCopiar.inserirNoInicio("A", "A");
+    // paraCopiar.inserirNoInicio("A", "A");
+    // paraCopiar.inserirNoInicio("A", "A");
+    // Lista copiada = paraCopiar;
+    // copiada.imprimir();
     
-    Lista paraCopiar;
-    paraCopiar.inserirNoInicio("A", "A");
-    paraCopiar.inserirNoInicio("A", "A");
-    paraCopiar.inserirNoInicio("A", "A");
-    Lista copiada = paraCopiar;
-    copiada.imprimir();
+    // Operador “+”
+    Lista ll1;
+    ll1.inserirNoInicio("A", "A");
+    ll1.inserirNoInicio("A", "A");
+    ll1.inserirNoInicio("A", "A");
+    Lista ll2;
+    ll2.inserirNoInicio("B", "B");
+    ll2.inserirNoInicio("B", "B");
+    ll2.inserirNoInicio("B", "B");
+    Lista ll3;
+    ll3.inserirNoInicio("C", "C");
+    ll3.inserirNoInicio("C", "C");
+
+
+    Lista soma(ll1 + ll2);
+    soma.imprimir();
+
+    ll1.imprimir();
+    ll2.imprimir();
+
+    Musica* musica_teste = new Musica();
+    ll2 >> musica_teste;
+
+    ll2.imprimir();
+    musica_teste->imprimir();
+
+    ll3 << musica_teste;
+    ll3.imprimir();
+
     // g++ main.cpp util.cpp Lista.cpp -Wall -o prog && prog
     // ------------------------------------------------
     // do
