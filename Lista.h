@@ -25,6 +25,7 @@ public:
     Lista();
     Lista(string nome, string titulo);
     ~Lista();
+    Lista(const Lista& l);
     Musica *getPrimeira();
     Musica *getUltima();
     void inserirNoInicio(string nome, string titulo);

@@ -43,8 +43,9 @@ int main()
     // playlists[0]->adicionarMusicaPlaylist("nem eu seiaaaaaa", "jjjjja");
     // playlists[1]->adicionarMusicaPlaylist("nem eu seibbbbbbb", "kkkkkja");
     // playlists[2]->adicionarMusicaPlaylist("nem eu seiccccccccc", "ooooooooja");
-
+    // g++ main.cpp util.cpp Lista.cpp  -Wall -o prog && prog
     Lista* l = new Lista();
+    
     Lista* l1 = new Lista();
     l1->inserirNoInicio("4", "4");
     l1->inserirNoInicio("3", "3");
@@ -67,6 +68,13 @@ int main()
 
     l->remover(musicas_para_remover);
     l->imprimir();
+    
+    Lista paraCopiar;
+    paraCopiar.inserirNoInicio("A", "A");
+    paraCopiar.inserirNoInicio("A", "A");
+    paraCopiar.inserirNoInicio("A", "A");
+    Lista copiada = paraCopiar;
+    copiada.imprimir();
     // g++ main.cpp util.cpp Lista.cpp -Wall -o prog && prog
     // ------------------------------------------------
     // do

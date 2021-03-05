@@ -25,6 +25,16 @@ Lista::Lista(string nome, string titulo)
     delete musica;
 }
 
+/** Constructor cópia. Cria uma cópia exata do objeto
+        * @param nome - string - nome do artista
+        * @param titulo - string - titulo da musica
+        */
+Lista::Lista(const Lista& l) {
+    cout << "Constructor copia!" << endl;
+    this->primeira = l.primeira;
+    ultima = l.ultima;
+}
+
 /** Método para acessar a primeira Música
         * @return primeira - Musica*
         */
