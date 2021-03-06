@@ -19,22 +19,22 @@ class Playlist
 private:
     string nome;
     Lista *lista;
-
 public:
-    // Construtor
     Playlist();
     Playlist(string nome);
-    void setNome(string nome);
+    Playlist(const Playlist& p);
+    ~Playlist();
     string getNome();
     Lista *getLista();
-    void setNome(Lista *lista);
+    void setNome(string nome);
+    void setLista(Lista *lista);
     void adicionarMusicaPlaylist(string nome, string titulo);
     void adicionarMusicaPlaylist(Playlist &p);
     void removerMusica(string nome, string titulo);
     void removerMusica(Playlist &p);
     Musica *getProximaMusica(Musica *musica);
-    ~Playlist();
     void imprimirTodasMusicas(Musica *musica);
+    Playlist operator+(Playlist &p);
 };
 
 #endif

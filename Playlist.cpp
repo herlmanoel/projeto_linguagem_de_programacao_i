@@ -26,6 +26,11 @@ Playlist::Playlist(string nome)
     this->lista = lista;
 }
 
+Playlist::Playlist(const Playlist& p) {
+    this->nome = p.nome;
+    this->lista = p.lista;
+}
+
 /** Método para setar nome
     * @param nome - string - nome da playlist
     */
@@ -45,7 +50,7 @@ string Playlist::getNome()
 /** Método para acessar a lista
 * @return lista - Lista* - lista de musicas
 */
-Lista *Playlist::getLista()
+Lista* Playlist::getLista()
 {
     return lista;
 }
@@ -53,7 +58,7 @@ Lista *Playlist::getLista()
 /** Método para setar lista
 * @param lista - Lista* - lista de musicas
 */
-void Playlist::setNome(Lista *lista)
+void Playlist::setLista(Lista *lista)
 {
     this->lista = lista;
 }
@@ -105,8 +110,7 @@ void Playlist::imprimirTodasMusicas(Musica *musica)
         return;
     }
 
-    cout << endl
-         << musica->getNome() << endl;
+    cout << endl << musica->getNome() << endl;
     cout << musica->getTitulo() << endl;
     cout << "-----------------------------";
 
@@ -119,4 +123,23 @@ void Playlist::imprimirTodasMusicas(Musica *musica)
 Playlist::~Playlist()
 {
     delete lista;
+}
+
+Playlist Playlist::operator+(Playlist &p) {
+    Playlist nova_playlist;
+    Lista* nova_lista = nova_playlist.getLista();
+    
+    Musica* m_p = lista->getPrimeira();
+    while (m_p != NULL) {
+        nova_lista->inserirNoInicio(m_p->getNome(), m_p->getTitulo());
+        m_p = m_p->getProxima();
+    }
+    Musica* musica = p.getLista()->getPrimeira();
+    while (musica != NULL) {
+        if(!nova_lista->buscarPeloNomeTitulo(musica->getNome(), musica->getTitulo())) {
+            nova_lista->inserirNoInicio(musica->getNome(), musica->getTitulo());
+        }
+        musica = musica->getProxima();
+    }
+    return nova_playlist;
 }

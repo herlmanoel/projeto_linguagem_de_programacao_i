@@ -23,32 +23,70 @@ int main()
     string opcoes = "\nOperacoes \n1: Criar playlist \n2: Adicionar musica \n3: Remover musica \n4: Retornar proxima musica\n5: Imprimir todas as musicas \n6: Remover Playlist\n7: Listar Playlists \n0: Para sair.\n\n";
     string linha = "-----------------------------";
     // int operacao;
-    vector<Playlist *> playlists;
+    // vector<Playlist *> playlists;
 
-    // cout << mensagem << endl;
-    // // ---------------------------------------------------
-    Playlist *nova_playlist1 = new Playlist("aa");
-    playlists.push_back(nova_playlist1);
+    // // cout << mensagem << endl;
+    // // // ---------------------------------------------------
+    // Playlist *nova_playlist1 = new Playlist("aa");
+    // playlists.push_back(nova_playlist1);
 
-    Playlist *nova_playlist2 = new Playlist("bb");
-    playlists.push_back(nova_playlist2);
+    // Playlist *nova_playlist2 = new Playlist("bb");
+    // playlists.push_back(nova_playlist2);
 
-    Playlist *nova_playlist3 = new Playlist("cc");
-    playlists.push_back(nova_playlist3);
+    // Playlist *nova_playlist3 = new Playlist("cc");
+    // playlists.push_back(nova_playlist3);
 
-    playlists[0]->adicionarMusicaPlaylist("ni", "ja");
-    playlists[1]->adicionarMusicaPlaylist("ni", "ja");
-    playlists[2]->adicionarMusicaPlaylist("ni", "ja");
+    // playlists[0]->adicionarMusicaPlaylist("ni", "ja");
+    // playlists[0]->adicionarMusicaPlaylist("3", "3");
+    // playlists[0]->adicionarMusicaPlaylist("2", "2");
+    // playlists[1]->adicionarMusicaPlaylist("ni", "ja");
+    // playlists[2]->adicionarMusicaPlaylist("ni", "ja");
 
-    playlists[0]->adicionarMusicaPlaylist("nem eu seiaaaaaa", "jjjjja");
-    playlists[1]->adicionarMusicaPlaylist("nem eu seibbbbbbb", "kkkkkja");
-    playlists[2]->adicionarMusicaPlaylist("nem eu seiccccccccc", "ooooooooja");
+    // playlists[0]->adicionarMusicaPlaylist("nem eu seiaaaaaa", "jjjjja");
+    // playlists[1]->adicionarMusicaPlaylist("nem eu seibbbbbbb", "kkkkkja");
+    // playlists[2]->adicionarMusicaPlaylist("nem eu seiccccccccc", "ooooooooja");
 
-    Playlist pl;
-    pl.adicionarMusicaPlaylist("ni", "ja");
-    pl.adicionarMusicaPlaylist("teste 02", "teste 02");
-    playlists[0]->adicionarMusicaPlaylist(pl);
-    playlists[0]->removerMusica(pl);
+    // Playlist pl_add;
+    // pl_add.adicionarMusicaPlaylist("ni", "ja");
+    // pl_add.adicionarMusicaPlaylist("teste 02", "teste 02");
+    // playlists[0]->adicionarMusicaPlaylist(pl_add);
+    // playlists[0]->imprimirTodasMusicas(playlists[0]->getLista()->getPrimeira());
+    // cout << "=================================" << endl;
+    // Playlist pl_r;
+    // pl_r.adicionarMusicaPlaylist("ni", "ja");
+    // pl_r.adicionarMusicaPlaylist("teste 02", "teste 02");
+    // playlists[0]->removerMusica(pl_r);
+
+    // Musica* primeira_musica = playlists[0]->getLista()->getPrimeira();
+    // playlists[0]->imprimirTodasMusicas(primeira_musica);
+
+    // construtor cópia
+    // Playlist p1_copiar;
+    // p1_copiar.adicionarMusicaPlaylist("teste 01", "teste 01");
+    // p1_copiar.adicionarMusicaPlaylist("teste 02", "teste 02");
+    // Playlist p1 = p1_copiar;
+    // p1.imprimirTodasMusicas(p1.getLista()->getPrimeira());
+
+    // operator +
+    Playlist pl1;
+    pl1.adicionarMusicaPlaylist("A", "A");
+    pl1.adicionarMusicaPlaylist("A", "A");
+    pl1.adicionarMusicaPlaylist("A", "A");
+    Playlist pl2;
+    pl2.adicionarMusicaPlaylist("B", "B");
+    pl2.adicionarMusicaPlaylist("B", "B");
+    pl2.adicionarMusicaPlaylist("B", "B");
+    Playlist pl3;
+    pl3.adicionarMusicaPlaylist("C", "C");
+    pl3.adicionarMusicaPlaylist("C", "C");
+
+
+    Playlist soma(pl1 + pl2);
+    soma.imprimirTodasMusicas(soma.getLista()->getPrimeira());
+    cout << "^^^^^^^^^^^^^^^^" << endl;
+    pl1.imprimirTodasMusicas(pl1.getLista()->getPrimeira());
+    cout << "^^^^^^^^^^^^^^^^" << endl;
+    pl2.imprimirTodasMusicas(pl2.getLista()->getPrimeira());
 
     // playlists[0]->imprimirTodasMusicas(playlists[0]->getLista()->getPrimeira());
 
@@ -67,6 +105,7 @@ int main()
     // l.remover(musicas_para_remover);
     // l.imprimir();
 
+    // construtor cópia
     // Lista paraCopiar;
     // paraCopiar.inserirNoInicio("A", "A");
     // paraCopiar.inserirNoInicio("A", "A");

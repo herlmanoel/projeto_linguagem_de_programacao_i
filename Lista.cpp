@@ -30,15 +30,14 @@ Lista::Lista(string nome, string titulo)
         * @param titulo - string - titulo da musica
         */
 Lista::Lista(const Lista& l) {
-    cout << "Constructor copia!" << endl;
     this->primeira = l.primeira;
-    ultima = l.ultima;
+    this->ultima = l.ultima;
 }
 
 /** Método para acessar a primeira Música
-        * @return primeira - Musica*
-        */
-Musica *Lista::getPrimeira()
+* @return primeira - Musica*
+*/
+Musica* Lista::getPrimeira()
 {
     return primeira;
 }
@@ -63,19 +62,17 @@ void Lista::setPrimeira(Musica *m) {
 }
 
 /** Método para adicionar musica no inicio da lista
-        * @param nome - string - nome do artista
-        * @param titulo - string - titulo da musica
-        */
+* @param nome - string - nome do artista
+* @param titulo - string - titulo da musica
+*/
 void Lista::inserirNoInicio(string nome, string titulo)
 {
     Musica *musica = new Musica(nome, titulo);
-    if (primeira == NULL)
-    {
+    if (primeira == NULL) {
         primeira = musica;
         ultima = musica;
     }
-    else
-    {
+    else {
         musica->setProxima(primeira);
         primeira = musica;
     }
@@ -131,11 +128,11 @@ void Lista::imprimir()
 }
 
 /** Método para buscar musica na lista pelo nome e titulo 
-        * @param nome - string - nome do artista
-        * @param titulo - string - titulo da musica
-        * @return  musica - Musica*
-        */
-Musica *Lista::buscarPeloNomeTitulo(string nome, string titulo)
+* @param nome - string - nome do artista
+* @param titulo - string - titulo da musica
+* @return  musica - Musica*
+*/
+Musica* Lista::buscarPeloNomeTitulo(string nome, string titulo)
 {
     Musica *musica = primeira;
 
@@ -172,19 +169,16 @@ void Lista::remover(string nome, string titulo)
 
     if (primeira->getNome().compare(nome) == 0 && primeira->getTitulo().compare(titulo) == 0)
     {
-        cout << "1. ENTROU" << endl;
         primeira = primeira->getProxima();
     }
     else if (primeira->getProxima()->getNome().compare(nome) == 0 && primeira->getProxima()->getTitulo().compare(titulo) == 0)
     {
-        cout << "2. ENTROU" << endl;
         temporaria = primeira->getProxima();
         primeira->setProxima(primeira->getProxima()->getProxima());
         delete temporaria;
     }
     else
     {
-        cout << "3. ENTROU" << endl;
         musica = primeira->getProxima()->getProxima();
         anterior = musica;
         while (musica != NULL)
@@ -216,10 +210,8 @@ void Lista::remover(Lista &listaDeMusica)
                 if(musica->getNome().compare(anterior->getNome()) == 0 
                 && musica->getTitulo().compare(anterior->getTitulo()) == 0) {
                     primeira = primeira->getProxima();
-                    cout << "AQUI!" << endl;
                     break;
                 } else {
-                    // cout << "AQUI!" << endl;
                     anterior->setProxima(musica->getProxima());
                     break;
                 }
