@@ -31,6 +31,7 @@ public:
     void adicionarMusicaPlaylist(string nome, string titulo);
     void adicionarMusicaPlaylist(Playlist &p);
     void removerMusica(string nome, string titulo);
+    void removerMusica(Playlist &p);
     Musica *getProximaMusica(Musica *musica);
     ~Playlist();
     void imprimirTodasMusicas(Musica *musica);

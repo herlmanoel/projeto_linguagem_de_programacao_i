@@ -45,7 +45,7 @@ string Playlist::getNome()
 /** Método para acessar a lista
 * @return lista - Lista* - lista de musicas
 */
-Lista* Playlist::getLista()
+Lista *Playlist::getLista()
 {
     return lista;
 }
@@ -67,8 +67,9 @@ void Playlist::adicionarMusicaPlaylist(string nome, string titulo)
     lista->inserirNoInicio(nome, titulo);
 }
 
-void Playlist::adicionarMusicaPlaylist(Playlist &p) {
-    // lista->inserirNoInicio(*p);
+void Playlist::adicionarMusicaPlaylist(Playlist &p)
+{
+    lista->inserirNoInicio(*(p.getLista()));
 }
 
 /** Método para remover musica na lista
@@ -80,10 +81,15 @@ void Playlist::removerMusica(string nome, string titulo)
     lista->remover(nome, titulo);
 }
 
+void Playlist::removerMusica(Playlist &p)
+{
+    lista->remover(*(p.getLista()));    
+}
+
 /** Método para pegar a proxima musica na lista
     * @param musica - Musica* - instancia da musica
     */
-Musica* Playlist::getProximaMusica(Musica *musica)
+Musica *Playlist::getProximaMusica(Musica *musica)
 {
     return musica->getProxima();
 }

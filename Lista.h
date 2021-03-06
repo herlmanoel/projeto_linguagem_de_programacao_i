@@ -35,7 +35,7 @@ public:
     void imprimir();
     Musica *buscarPeloNomeTitulo(string nome, string titulo);
     void remover(string nome, string titulo);
-    void remover(Lista *listaDeMusica);
+    void remover(Lista &listaDeMusica);
     void removerUltima();
     Lista operator+(Lista &lista);
     void operator>>(Musica *m);

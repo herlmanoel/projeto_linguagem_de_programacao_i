@@ -22,11 +22,11 @@ int main()
     string mensagem = "\nBem vindo ao seu gerenciador de Playlists!\n";
     string opcoes = "\nOperacoes \n1: Criar playlist \n2: Adicionar musica \n3: Remover musica \n4: Retornar proxima musica\n5: Imprimir todas as musicas \n6: Remover Playlist\n7: Listar Playlists \n0: Para sair.\n\n";
     string linha = "-----------------------------";
-    int operacao;
+    // int operacao;
     vector<Playlist *> playlists;
 
-    cout << mensagem << endl;
-    // ---------------------------------------------------
+    // cout << mensagem << endl;
+    // // ---------------------------------------------------
     Playlist *nova_playlist1 = new Playlist("aa");
     playlists.push_back(nova_playlist1);
 
@@ -44,26 +44,28 @@ int main()
     playlists[1]->adicionarMusicaPlaylist("nem eu seibbbbbbb", "kkkkkja");
     playlists[2]->adicionarMusicaPlaylist("nem eu seiccccccccc", "ooooooooja");
 
-    playlists[0]->imprimirTodasMusicas(playlists[0]->getLista()->getPrimeira());
+    Playlist pl;
+    pl.adicionarMusicaPlaylist("ni", "ja");
+    pl.adicionarMusicaPlaylist("teste 02", "teste 02");
+    playlists[0]->adicionarMusicaPlaylist(pl);
+    playlists[0]->removerMusica(pl);
+
+    // playlists[0]->imprimirTodasMusicas(playlists[0]->getLista()->getPrimeira());
 
     // ------------------------------------------------------------- Parte 2
-    // g++ main.cpp util.cpp Lista.cpp  -Wall -o prog && prog
-    Lista l;
-    Lista* l1= new Lista();
-    l1->inserirNoInicio("4", "4"); l1->inserirNoInicio("3", "3"); l1->inserirNoInicio("2", "2");
-    l.inserirNoInicio("8", "8"); l.inserirNoInicio("7", "7"); l.inserirNoInicio("6", "6"); 
+    // g++ main.cpp util.cpp Lista.cpp Playlist.cpp  -Wall -o prog && prog
+    // Lista l;
+    // l.inserirNoInicio("8", "8"); l.inserirNoInicio("7", "7"); l.inserirNoInicio("6", "6");
+    // Lista* l1= new Lista();
+    // l1->inserirNoInicio("4", "4"); l1->inserirNoInicio("3", "3"); l1->inserirNoInicio("2", "2");
+     
 
     // teste add lista a lista
-    l1->inserirNoInicio(l);
-    l1->imprimir();
+    // l1->inserirNoInicio(l);
+    // l1->imprimir();
 
-    // Lista *musicas_para_remover = new Lista();
-    // musicas_para_remover->inserirNoInicio("1", "1");
-    // musicas_para_remover->inserirNoInicio("3", "3");
-    // musicas_para_remover->inserirNoInicio("8", "8");
-
-    // l->remover(musicas_para_remover);
-    // l->imprimir();
+    // l.remover(musicas_para_remover);
+    // l.imprimir();
 
     // Lista paraCopiar;
     // paraCopiar.inserirNoInicio("A", "A");
@@ -101,7 +103,7 @@ int main()
     // ll3 << musica_teste;
     // ll3.imprimir();
 
-    // g++ main.cpp util.cpp Lista.cpp -Wall -o prog && prog
+    // g++ main.cpp util.cpp Lista.cpp Playlist.cpp -Wall -o prog && prog
     // ------------------------------------------------
     // do
     // {

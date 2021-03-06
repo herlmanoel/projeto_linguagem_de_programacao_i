@@ -202,9 +202,9 @@ void Lista::remover(string nome, string titulo)
     }
 }
 
-void Lista::remover(Lista *listaDeMusica)
+void Lista::remover(Lista &listaDeMusica)
 {
-    Musica *musica_excluir = listaDeMusica->getPrimeira();
+    Musica *musica_excluir = listaDeMusica.getPrimeira();
     
     while (musica_excluir != NULL) {
         Musica *musica = primeira;
