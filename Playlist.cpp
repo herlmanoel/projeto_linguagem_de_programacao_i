@@ -110,9 +110,8 @@ void Playlist::imprimirTodasMusicas(Musica *musica)
         return;
     }
 
-    cout << endl << musica->getNome() << endl;
-    cout << musica->getTitulo() << endl;
-    cout << "-----------------------------";
+    cout <<  musica->getNome() << " | " << musica->getTitulo() << endl;
+    cout << "-----------------------------" << endl;
 
     return Playlist::imprimirTodasMusicas(musica->getProxima());
 }
@@ -128,7 +127,7 @@ Playlist::~Playlist()
 Playlist Playlist::operator+(Playlist &p) {
     Playlist nova_playlist;
     Lista* nova_lista = nova_playlist.getLista();
-    
+
     Musica* m_p = lista->getPrimeira();
     while (m_p != NULL) {
         nova_lista->inserirNoInicio(m_p->getNome(), m_p->getTitulo());
@@ -141,5 +140,45 @@ Playlist Playlist::operator+(Playlist &p) {
         }
         musica = musica->getProxima();
     }
+    return nova_playlist;
+}
+
+Playlist Playlist::operator+(Musica &m) {
+    Playlist nova_playlist;
+    Lista* nova_lista = nova_playlist.getLista();
+
+    Musica* m_p = lista->getPrimeira();
+    while (m_p != NULL) {
+        nova_lista->inserirNoInicio(m_p->getNome(), m_p->getTitulo());
+        m_p = m_p->getProxima();
+    }
+    nova_lista->getUltima()->setProxima(&m);
+    return nova_playlist;
+}
+
+Playlist Playlist::operator-(Playlist &p) {
+    Playlist nova_playlist;
+    Lista* nova_lista = nova_playlist.getLista();
+    Musica* m_p = lista->getPrimeira();
+    while (m_p != NULL) {
+        nova_lista->inserirNoInicio(m_p->getNome(), m_p->getTitulo());
+        m_p = m_p->getProxima();
+    }
+    
+    nova_lista->remover(*(p.getLista()));
+
+    return nova_playlist;
+}
+
+Playlist Playlist::operator-(Musica &m) {
+    Playlist nova_playlist;
+    Lista* nova_lista = nova_playlist.getLista();
+
+    Musica* m_p = lista->getPrimeira();
+    while (m_p != NULL) {
+        nova_lista->inserirNoInicio(m_p->getNome(), m_p->getTitulo());
+        m_p = m_p->getProxima();
+    }
+    nova_lista->getUltima()->setProxima(&m);
     return nova_playlist;
 }

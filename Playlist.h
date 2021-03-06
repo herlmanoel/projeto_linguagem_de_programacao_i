@@ -35,6 +35,9 @@ public:
     Musica *getProximaMusica(Musica *musica);
     void imprimirTodasMusicas(Musica *musica);
     Playlist operator+(Playlist &p);
+    Playlist operator+(Musica &m);
+    Playlist operator-(Playlist &p);
+    Playlist operator-(Musica &m);
 };
 
 #endif

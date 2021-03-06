@@ -70,7 +70,7 @@ int main()
     // operator +
     Playlist pl1;
     pl1.adicionarMusicaPlaylist("A", "A");
-    pl1.adicionarMusicaPlaylist("A", "A");
+    pl1.adicionarMusicaPlaylist("B", "B");
     pl1.adicionarMusicaPlaylist("A", "A");
     Playlist pl2;
     pl2.adicionarMusicaPlaylist("B", "B");
@@ -80,13 +80,20 @@ int main()
     pl3.adicionarMusicaPlaylist("C", "C");
     pl3.adicionarMusicaPlaylist("C", "C");
 
+    Playlist sub(pl1 - pl2);
+    cout << sub.getLista()->getPrimeira()->getNome() << endl;
+    sub.imprimirTodasMusicas(sub.getLista()->getPrimeira());
 
-    Playlist soma(pl1 + pl2);
-    soma.imprimirTodasMusicas(soma.getLista()->getPrimeira());
-    cout << "^^^^^^^^^^^^^^^^" << endl;
-    pl1.imprimirTodasMusicas(pl1.getLista()->getPrimeira());
-    cout << "^^^^^^^^^^^^^^^^" << endl;
-    pl2.imprimirTodasMusicas(pl2.getLista()->getPrimeira());
+    // Playlist soma(pl1 + pl2);
+    // soma.imprimirTodasMusicas(soma.getLista()->getPrimeira());
+    // cout << "^^^^^^^^^^^^^^^^" << endl;
+    // pl1.imprimirTodasMusicas(pl1.getLista()->getPrimeira());
+    // cout << "^^^^^^^^^^^^^^^^" << endl;
+    // pl2.imprimirTodasMusicas(pl2.getLista()->getPrimeira());
+    // cout << "^^^^^^^^^^^^^^^^" << endl;
+    // Musica mu("Make You Mine", "public");
+    // Playlist soma_m_p(pl2 + mu);
+    // soma_m_p.imprimirTodasMusicas(soma_m_p.getLista()->getPrimeira());
 
     // playlists[0]->imprimirTodasMusicas(playlists[0]->getLista()->getPrimeira());
 
