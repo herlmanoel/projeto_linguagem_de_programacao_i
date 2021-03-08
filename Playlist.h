@@ -8,6 +8,7 @@
 using namespace std;
 
 /** Classe responsável por gerir a listas ligada.
+* Assinatura dos métodos utilizados no arquivo .cpp 
 * @author Herlmanoel Fernandes Barbosa
 * @version 1.0
 * @param nome - String - nome da playlist
@@ -19,10 +20,11 @@ class Playlist
 private:
     string nome;
     Lista *lista;
+
 public:
     Playlist();
     Playlist(string nome);
-    Playlist(const Playlist& p);
+    Playlist(const Playlist &p);
     ~Playlist();
     string getNome();
     Lista *getLista();

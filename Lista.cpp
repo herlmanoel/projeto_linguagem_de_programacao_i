@@ -29,10 +29,12 @@ Lista::Lista(string nome, string titulo)
         * @param nome - string - nome do artista
         * @param titulo - string - titulo da musica
         */
-Lista::Lista(const Lista& l) {
-    Lista* nova_lista = new Lista();
-    Musica* m = l.primeira;
-    while (m != NULL) {
+Lista::Lista(const Lista &l)
+{
+    Lista *nova_lista = new Lista();
+    Musica *m = l.primeira;
+    while (m != NULL)
+    {
         nova_lista->inserirNoInicio(m->getNome(), m->getTitulo());
         m = m->getProxima();
     }
@@ -43,7 +45,7 @@ Lista::Lista(const Lista& l) {
 /** Método para acessar a primeira Música
 * @return primeira - Musica*
 */
-Musica* Lista::getPrimeira()
+Musica *Lista::getPrimeira()
 {
     return primeira;
 }
@@ -63,7 +65,8 @@ Musica *Lista::getUltima()
     return NULL;
 }
 
-void Lista::setPrimeira(Musica *m) { 
+void Lista::setPrimeira(Musica *m)
+{
     primeira = m;
 }
 
@@ -74,11 +77,13 @@ void Lista::setPrimeira(Musica *m) {
 void Lista::inserirNoInicio(string nome, string titulo)
 {
     Musica *musica = new Musica(nome, titulo);
-    if (primeira == NULL) {
+    if (primeira == NULL)
+    {
         primeira = musica;
         ultima = musica;
     }
-    else {
+    else
+    {
         musica->setProxima(primeira);
         primeira = musica;
     }
@@ -138,7 +143,7 @@ void Lista::imprimir()
 * @param titulo - string - titulo da musica
 * @return  musica - Musica*
 */
-Musica* Lista::buscarPeloNomeTitulo(string nome, string titulo)
+Musica *Lista::buscarPeloNomeTitulo(string nome, string titulo)
 {
     Musica *musica = primeira;
 
@@ -168,7 +173,6 @@ Musica* Lista::buscarPeloNomeTitulo(string nome, string titulo)
 */
 void Lista::remover(string nome, string titulo)
 {
-    
     Musica *anterior = new Musica();
     Musica *musica = new Musica();
     Musica *posterior = new Musica();
@@ -201,22 +205,29 @@ void Lista::remover(string nome, string titulo)
     }
 }
 
+/** Método sobrecarregado para remover uma lista de Músicas
+* @param Lista - lista de músicas
+*/
 void Lista::remover(Lista &listaDeMusica)
 {
     Musica *musica_excluir = listaDeMusica.getPrimeira();
-    
-    while (musica_excluir != NULL) {
+
+    while (musica_excluir != NULL)
+    {
         Musica *musica = primeira;
         Musica *anterior = musica;
-        while (musica != NULL) {
+        while (musica != NULL)
+        {
             // cout << musica_excluir->getNome() << endl;
-            if (musica->getNome().compare(musica_excluir->getNome()) == 0 
-                && musica->getTitulo().compare(musica_excluir->getTitulo()) == 0) {
-                if(musica->getNome().compare(anterior->getNome()) == 0 
-                && musica->getTitulo().compare(anterior->getTitulo()) == 0) {
+            if (musica->getNome().compare(musica_excluir->getNome()) == 0 && musica->getTitulo().compare(musica_excluir->getTitulo()) == 0)
+            {
+                if (musica->getNome().compare(anterior->getNome()) == 0 && musica->getTitulo().compare(anterior->getTitulo()) == 0)
+                {
                     primeira = primeira->getProxima();
                     break;
-                } else {
+                }
+                else
+                {
                     anterior->setProxima(musica->getProxima());
                     break;
                 }
@@ -228,19 +239,24 @@ void Lista::remover(Lista &listaDeMusica)
     }
 }
 
-Lista Lista::operator+(Lista &lista){
+/** Método sobrecarregando operador "+" add lista a outra lista
+* @param Lista - lista de músicas
+*/
+Lista Lista::operator+(Lista &lista)
+{
     // parcialmente feita
     Lista nova_lista;
-    Musica* m = primeira;
-    while (m != NULL) {
+    Musica *m = primeira;
+    while (m != NULL)
+    {
         nova_lista.inserirNoInicio(m->getNome(), m->getTitulo());
         m = m->getProxima();
     }
-    
-    
-    Musica* m_1 = lista.getPrimeira();
+
+    Musica *m_1 = lista.getPrimeira();
     Lista nova_lista1;
-    while (m_1 != NULL) {
+    while (m_1 != NULL)
+    {
         nova_lista1.inserirNoInicio(m_1->getNome(), m_1->getTitulo());
         m_1 = m_1->getProxima();
     }
@@ -249,28 +265,43 @@ Lista Lista::operator+(Lista &lista){
     return nova_lista;
 }
 
-void Lista::removerUltima() {
-    Musica* musica = primeira;
-    Musica* anterior = musica;
-    while(musica != NULL) {
-        if(musica->getProxima() == NULL) {
+/** Método para remover última música da lista
+*/
+void Lista::removerUltima()
+{
+    Musica *musica = primeira;
+    Musica *anterior = musica;
+    while (musica != NULL)
+    {
+        if (musica->getProxima() == NULL)
+        {
             anterior->setProxima(NULL);
         }
         anterior = musica;
-        musica = musica->getProxima();        
+        musica = musica->getProxima();
     }
 }
 
-void Lista::operator>>(Musica *m) {
-    if(primeira != NULL) {
+/** Método sobrecarregando operador ">>" add o último elemento da lista a uma música e remove da lista 
+* @param Musica* m - música
+*/
+void Lista::operator>>(Musica *m)
+{
+    if (primeira != NULL)
+    {
         m->setNome(getUltima()->getNome());
         m->setTitulo(getUltima()->getTitulo());
         Lista::removerUltima();
     }
 }
 
-void Lista::operator<<(Musica* m) {
-    if(primeira != NULL) {
+/** Método sobrecarregando operador "<<" insere a música na última posição da lista 
+* @param Musica* m - música
+*/
+void Lista::operator<<(Musica *m)
+{
+    if (primeira != NULL)
+    {
         getUltima()->setProxima(m);
     }
 }

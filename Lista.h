@@ -9,7 +9,8 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-/** Classe responsável por gerir as Músicas.
+/** Classe responsável por gerir as Músicas
+* Assinatura dos métodos utilizados no arquivo .cpp 
 * @author Herlmanoel Fernandes Barbosa
 * @version 1.0
 * @param primeira - Musica* - primeira Música da lista
@@ -21,11 +22,12 @@ class Lista
 private:
     Musica *primeira;
     Musica *ultima;
+
 public:
     Lista();
     Lista(string nome, string titulo);
     ~Lista();
-    Lista(const Lista& l);
+    Lista(const Lista &l);
     Musica *getPrimeira();
     void setPrimeira(Musica *m);
     Musica *getUltima();

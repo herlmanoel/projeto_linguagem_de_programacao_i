@@ -17,8 +17,8 @@ Playlist::Playlist()
 }
 
 /** Método constructor passando como parametro o nome da Playlist
-     * @param nome - string - nome da playlist
-     */
+* @param nome - string - nome da playlist
+*/
 Playlist::Playlist(string nome)
 {
     this->nome = nome;
@@ -26,23 +26,27 @@ Playlist::Playlist(string nome)
     this->lista = lista;
 }
 
-Playlist::Playlist(const Playlist& p) {
+/** Método construtor cópia
+* @param Playlist &p - referencia para a Playlist
+*/
+Playlist::Playlist(const Playlist &p)
+{
     this->nome = p.nome;
-    Lista* nova_lista = p.lista;
+    Lista *nova_lista = p.lista;
     this->lista = nova_lista;
 }
 
 /** Método para setar nome
-    * @param nome - string - nome da playlist
-    */
+* @param nome - string - nome da playlist
+*/
 void Playlist::setNome(string nome)
 {
     this->nome = nome;
 }
 
 /** Método para acessar o nome
-    * @return nome - string - nome da playlist
-    */
+* @return nome - string - nome da playlist
+*/
 string Playlist::getNome()
 {
     return nome;
@@ -51,7 +55,7 @@ string Playlist::getNome()
 /** Método para acessar a lista
 * @return lista - Lista* - lista de musicas
 */
-Lista* Playlist::getLista()
+Lista *Playlist::getLista()
 {
     return lista;
 }
@@ -65,44 +69,50 @@ void Playlist::setLista(Lista *lista)
 }
 
 /** Método para adicionar musica na lista
-    * @param nome - string - nome do artista
-    * @param titulo - string - titulo da musica
-    */
+* @param nome - string - nome do artista
+* @param titulo - string - titulo da musica
+*/
 void Playlist::adicionarMusicaPlaylist(string nome, string titulo)
 {
     lista->inserirNoInicio(nome, titulo);
 }
 
+/** Método sobrecarregado para unir duas Playlists
+* @param Playlist &p- referencia para a Playlist
+*/
 void Playlist::adicionarMusicaPlaylist(Playlist &p)
 {
     lista->inserirNoInicio(*(p.getLista()));
 }
 
 /** Método para remover musica na lista
-    * @param nome - string - nome do artista
-    * @param titulo - string - titulo da musica
-    */
+* @param nome - string - nome do artista
+* @param titulo - string - titulo da musica
+*/
 void Playlist::removerMusica(string nome, string titulo)
 {
     lista->remover(nome, titulo);
 }
 
+/** Método sobrecarregado para remover uma Playlist de outra Playlist
+* @param Playlist &p- referencia para a Playlist
+*/
 void Playlist::removerMusica(Playlist &p)
 {
-    lista->remover(*(p.getLista()));    
+    lista->remover(*(p.getLista()));
 }
 
 /** Método para pegar a proxima musica na lista
-    * @param musica - Musica* - instancia da musica
-    */
+* @param musica - Musica* - instancia da musica
+*/
 Musica *Playlist::getProximaMusica(Musica *musica)
 {
     return musica->getProxima();
 }
 
 /** Método recursivo para imprimir todas as musicas
-    * @param musica - Musica* - instancia da primeira musica da lista
-    */
+* @param musica - Musica* - instancia da primeira musica da lista
+*/
 void Playlist::imprimirTodasMusicas(Musica *musica)
 {
     if (musica == NULL)
@@ -111,7 +121,7 @@ void Playlist::imprimirTodasMusicas(Musica *musica)
         return;
     }
 
-    cout <<  musica->getNome() << " | " << musica->getTitulo() << endl;
+    cout << musica->getNome() << " | " << musica->getTitulo() << endl;
     cout << "-----------------------------" << endl;
 
     return Playlist::imprimirTodasMusicas(musica->getProxima());
@@ -125,18 +135,25 @@ Playlist::~Playlist()
     delete lista;
 }
 
-Playlist Playlist::operator+(Playlist &p) {
+/** Método sobrecarregando o operador "+" unindo duas Playlists
+* @param Playlist &p- referencia para a Playlist
+*/
+Playlist Playlist::operator+(Playlist &p)
+{
     Playlist nova_playlist;
-    Lista* nova_lista = nova_playlist.getLista();
+    Lista *nova_lista = nova_playlist.getLista();
 
-    Musica* m_p = lista->getPrimeira();
-    while (m_p != NULL) {
+    Musica *m_p = lista->getPrimeira();
+    while (m_p != NULL)
+    {
         nova_lista->inserirNoInicio(m_p->getNome(), m_p->getTitulo());
         m_p = m_p->getProxima();
     }
-    Musica* musica = p.getLista()->getPrimeira();
-    while (musica != NULL) {
-        if(!nova_lista->buscarPeloNomeTitulo(musica->getNome(), musica->getTitulo())) {
+    Musica *musica = p.getLista()->getPrimeira();
+    while (musica != NULL)
+    {
+        if (!nova_lista->buscarPeloNomeTitulo(musica->getNome(), musica->getTitulo()))
+        {
             nova_lista->inserirNoInicio(musica->getNome(), musica->getTitulo());
         }
         musica = musica->getProxima();
@@ -144,12 +161,17 @@ Playlist Playlist::operator+(Playlist &p) {
     return nova_playlist;
 }
 
-Playlist Playlist::operator+(Musica &m) {
+/** Método sobrecarregando o operador "+" add uma música ao final da playlist
+* @param Musica &m - referencia para a Música
+*/
+Playlist Playlist::operator+(Musica &m)
+{
     Playlist nova_playlist;
-    Lista* nova_lista = nova_playlist.getLista();
+    Lista *nova_lista = nova_playlist.getLista();
 
-    Musica* m_p = lista->getPrimeira();
-    while (m_p != NULL) {
+    Musica *m_p = lista->getPrimeira();
+    while (m_p != NULL)
+    {
         nova_lista->inserirNoInicio(m_p->getNome(), m_p->getTitulo());
         m_p = m_p->getProxima();
     }
@@ -157,46 +179,64 @@ Playlist Playlist::operator+(Musica &m) {
     return nova_playlist;
 }
 
-Playlist Playlist::operator-(Playlist &p) {
+/** Método sobrecarregando o operador "-" removendo uma Playlist de outra Playlist
+* @param Playlist &p- referencia para a Playlist
+*/
+Playlist Playlist::operator-(Playlist &p)
+{
     Playlist nova_playlist;
-    Lista* nova_lista = nova_playlist.getLista();
-    Musica* m_p = lista->getPrimeira();
-    while (m_p != NULL) {
+    Lista *nova_lista = nova_playlist.getLista();
+    Musica *m_p = lista->getPrimeira();
+    while (m_p != NULL)
+    {
         nova_lista->inserirNoInicio(m_p->getNome(), m_p->getTitulo());
         m_p = m_p->getProxima();
     }
-    
+
     nova_lista->remover(*(p.getLista()));
 
     return nova_playlist;
 }
 
-Playlist Playlist::operator-(Musica &m) {
+/** Método sobrecarregando o operador "-" removendo uma música de uma Playlist
+* @param Musica &m - referencia da Música
+*/
+Playlist Playlist::operator-(Musica &m)
+{
     Playlist nova_playlist;
-    Lista* nova_lista = nova_playlist.getLista();
-    
-    Musica* m_p = lista->getPrimeira();
-    while (m_p != NULL) {
+    Lista *nova_lista = nova_playlist.getLista();
+
+    Musica *m_p = lista->getPrimeira();
+    while (m_p != NULL)
+    {
         nova_lista->inserirNoInicio(m_p->getNome(), m_p->getTitulo());
         m_p = m_p->getProxima();
     }
-
-    // nova_lista->imprimir();
     nova_lista->remover(m.getNome(), m.getTitulo());
 
-    // nova_lista->imprimir();
     return nova_playlist;
 }
 
-void Playlist::operator>>(Musica &m) {
-    if(lista->getPrimeira() != NULL) {
+/** Método sobrecarregando o operador ">>" add a última música da Playlist na referencia de musica e removendo
+* @param Musica &m - referencia da Música
+*/
+void Playlist::operator>>(Musica &m)
+{
+    if (lista->getPrimeira() != NULL)
+    {
         m.setNome(lista->getUltima()->getNome());
         m.setTitulo(lista->getUltima()->getTitulo());
         lista->removerUltima();
     }
 }
-void Playlist::operator<<(Musica &m) {
-    if(lista->getPrimeira() != NULL) {
+
+/** Método sobrecarregando o operador "<<" add uma música ao final da Playlist
+* @param Musica &m - referencia da Música
+*/
+void Playlist::operator<<(Musica &m)
+{
+    if (lista->getPrimeira() != NULL)
+    {
         lista->getUltima()->setProxima(&m);
     }
 }
