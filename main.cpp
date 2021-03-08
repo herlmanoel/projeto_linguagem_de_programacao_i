@@ -7,7 +7,7 @@
 
 using namespace std;
 
-/** Método responsável por gerir as Playlists.
+/** Método responsável exemplificar as operações pedidas no projeto.
 * @author Herlmanoel Fernandes Barbosa
 * @version 1.0
 * @param mensagem - String - Mensagem de boas vindas
@@ -19,239 +19,109 @@ using namespace std;
 
 int main()
 {
-    string mensagem = "\nBem vindo ao seu gerenciador de Playlists!\n";
-    string opcoes = "\nOperacoes \n1: Criar playlist \n2: Adicionar musica \n3: Remover musica \n4: Retornar proxima musica\n5: Imprimir todas as musicas \n6: Remover Playlist\n7: Listar Playlists \n0: Para sair.\n\n";
-    string linha = "-----------------------------";
-    // int operacao;
-    // vector<Playlist *> playlists;
-
-    // // cout << mensagem << endl;
-    // // // ---------------------------------------------------
-    // Playlist *nova_playlist1 = new Playlist("aa");
-    // playlists.push_back(nova_playlist1);
-
-    // Playlist *nova_playlist2 = new Playlist("bb");
-    // playlists.push_back(nova_playlist2);
-
-    // Playlist *nova_playlist3 = new Playlist("cc");
-    // playlists.push_back(nova_playlist3);
-
-    // playlists[0]->adicionarMusicaPlaylist("ni", "ja");
-    // playlists[0]->adicionarMusicaPlaylist("3", "3");
-    // playlists[0]->adicionarMusicaPlaylist("2", "2");
-    // playlists[1]->adicionarMusicaPlaylist("ni", "ja");
-    // playlists[2]->adicionarMusicaPlaylist("ni", "ja");
-
-    // playlists[0]->adicionarMusicaPlaylist("nem eu seiaaaaaa", "jjjjja");
-    // playlists[1]->adicionarMusicaPlaylist("nem eu seibbbbbbb", "kkkkkja");
-    // playlists[2]->adicionarMusicaPlaylist("nem eu seiccccccccc", "ooooooooja");
-
-    // Playlist pl_add;
-    // pl_add.adicionarMusicaPlaylist("ni", "ja");
-    // pl_add.adicionarMusicaPlaylist("teste 02", "teste 02");
-    // playlists[0]->adicionarMusicaPlaylist(pl_add);
-    // playlists[0]->imprimirTodasMusicas(playlists[0]->getLista()->getPrimeira());
-    // cout << "=================================" << endl;
-    // Playlist pl_r;
-    // pl_r.adicionarMusicaPlaylist("ni", "ja");
-    // pl_r.adicionarMusicaPlaylist("teste 02", "teste 02");
-    // playlists[0]->removerMusica(pl_r);
-
-    // Musica* primeira_musica = playlists[0]->getLista()->getPrimeira();
-    // playlists[0]->imprimirTodasMusicas(primeira_musica);
-
-    // construtor cópia
-    // Playlist p1_copiar;
-    // p1_copiar.adicionarMusicaPlaylist("teste 01", "teste 01");
-    // p1_copiar.adicionarMusicaPlaylist("teste 02", "teste 02");
-    // Playlist p1 = p1_copiar;
-    // p1.imprimirTodasMusicas(p1.getLista()->getPrimeira());
-
-    // operator +
-    Playlist pl1;
-    pl1.adicionarMusicaPlaylist("A", "A");
-    pl1.adicionarMusicaPlaylist("B", "B");
-    pl1.adicionarMusicaPlaylist("A", "A");
-    Playlist pl2;
-    pl2.adicionarMusicaPlaylist("B", "B");
-    pl2.adicionarMusicaPlaylist("K", "K");
-    pl2.adicionarMusicaPlaylist("B", "B");
-    Playlist pl3;
-    pl3.adicionarMusicaPlaylist("C", "C");
-    pl3.adicionarMusicaPlaylist("C", "C");
-
-    // Playlist sub(pl1 - pl2);
-    // cout << sub.getLista()->getPrimeira()->getNome() << endl;
-    // sub.imprimirTodasMusicas(sub.getLista()->getPrimeira());
-    Musica mumu("K", "K");
-    Playlist sub_mu(pl2 - mumu);
-    sub_mu.imprimirTodasMusicas(sub_mu.getLista()->getPrimeira());
-
-    // Playlist soma(pl1 + pl2);
-    // soma.imprimirTodasMusicas(soma.getLista()->getPrimeira());
-    // cout << "^^^^^^^^^^^^^^^^" << endl;
-    // pl1.imprimirTodasMusicas(pl1.getLista()->getPrimeira());
-    // cout << "^^^^^^^^^^^^^^^^" << endl;
-    // pl2.imprimirTodasMusicas(pl2.getLista()->getPrimeira());
-    // cout << "^^^^^^^^^^^^^^^^" << endl;
-    // Musica mu("Make You Mine", "public");
-    // Playlist soma_m_p(pl2 + mu);
-    // soma_m_p.imprimirTodasMusicas(soma_m_p.getLista()->getPrimeira());
-
-    // playlists[0]->imprimirTodasMusicas(playlists[0]->getLista()->getPrimeira());
-
-    // ------------------------------------------------------------- Parte 2
-    // g++ main.cpp util.cpp Lista.cpp Playlist.cpp  -Wall -o prog && prog
-    // Lista l;
-    // l.inserirNoInicio("8", "8"); l.inserirNoInicio("7", "7"); l.inserirNoInicio("6", "6");
-    // Lista* l1= new Lista();
-    // l1->inserirNoInicio("4", "4"); l1->inserirNoInicio("3", "3"); l1->inserirNoInicio("2", "2");
-     
-
-    // teste add lista a lista
-    // l1->inserirNoInicio(l);
-    // l1->imprimir();
-
-    // l.remover(musicas_para_remover);
-    // l.imprimir();
-
-    // construtor cópia
-    // Lista paraCopiar;
-    // paraCopiar.inserirNoInicio("A", "A");
-    // paraCopiar.inserirNoInicio("A", "A");
-    // paraCopiar.inserirNoInicio("A", "A");
-    // Lista copiada = paraCopiar;
-    // copiada.imprimir();
+    // g++ main.cpp util.cpp Lista.cpp Playlist.cpp Musica.cpp  -Wall -o prog && prog
+    Lista list01;
+    list01.inserirNoInicio("Flor de Tangerina", "Alceu Valenca");
+    list01.inserirNoInicio("Girassol", "Alceu Valenca");
+    list01.inserirNoInicio("La Belle de Jour", "Alceu Valenca");
+    list01.inserirNoInicio("Valeu", "Dorgival Dantas");
     
-    // Operador “+”
-    // Lista ll1;
-    // ll1.inserirNoInicio("A", "A");
-    // ll1.inserirNoInicio("A", "A");
-    // ll1.inserirNoInicio("A", "A");
-    // Lista ll2;
-    // ll2.inserirNoInicio("B", "B");
-    // ll2.inserirNoInicio("B", "B");
-    // ll2.inserirNoInicio("B", "B");
-    // Lista ll3;
-    // ll3.inserirNoInicio("C", "C");
-    // ll3.inserirNoInicio("C", "C");
+    Lista list02;
+    list02.inserirNoInicio("Desta", "Dorgival Dantas");
+    list02.inserirNoInicio("Primeiro Passo", "Dorgival Dantas");
+    list02.inserirNoInicio("Tarde Demais", "Dorgival Dantas");
+
+    // A. Adicionar elementos
+    list01.inserirNoInicio(list02);
+    list01.imprimir();
+
+    Lista list03;
+    list03.inserirNoInicio("Desta", "Dorgival Dantas");
+    list03.inserirNoInicio("Primeiro Passo", "Dorgival Dantas");
+
+    // B. Remover elementos
+    list01.remover(list03);
+    list01.imprimir();
+
+    // C. Construtor cópia
+    Lista list04 = list02;
+    list04.imprimir();
+
+    // Usando sobrecarga de operadores
+    // A. Operador “+”
+    Lista soma(list01 + list02);
+    soma.imprimir();
+
+    // B. Operador de extração “>>”
+    Musica* musica_teste = new Musica();
+    list01 >> musica_teste;
+    cout << musica_teste->getNome() << " " << musica_teste->getTitulo() << endl;
+
+    // C. Operador de inserção “<<”
+    Musica* m = new Musica("Ate mais ver", "Dorgival Dantas");
+    list01 << m;
+    list01.imprimir();
+
+    // Classe Playlist
+    Playlist playlist01("Forro 01");
+    playlist01.adicionarMusicaPlaylist("Flor de Tangerina", "Alceu Valenca");
+    playlist01.adicionarMusicaPlaylist("Girassol", "Alceu Valenca");
+    playlist01.adicionarMusicaPlaylist("La Belle de Jour", "Alceu Valenca");
+    playlist01.adicionarMusicaPlaylist("Valeu", "Dorgival Dantas");
 
 
-    // Lista soma(ll1 + ll2);
-    // soma.imprimir();
+    Playlist playlist02("Forro 02");
+    // A. Adicionar músicas
+    playlist02.adicionarMusicaPlaylist(playlist01);
+    playlist02.imprimirTodasMusicas(playlist02.getLista()->getPrimeira());
 
-    // ll1.imprimir();
-    // ll2.imprimir();
+    Playlist playlist03("Forro 03");
+    playlist03.adicionarMusicaPlaylist("La Belle de Jour", "Alceu Valenca");
+    playlist03.adicionarMusicaPlaylist("Valeu", "Dorgival Dantas");
 
-    // Musica* musica_teste = new Musica();
-    // ll2 >> musica_teste;
+    // B. Remover músicas
+    playlist02.removerMusica(playlist03);
 
-    // ll2.imprimir();
-    // musica_teste->imprimir();
+    // C. Construtor cópia
+    Playlist playlist04 = playlist01;
+    playlist04.imprimirTodasMusicas(playlist04.getLista()->getPrimeira());
 
-    // ll3 << musica_teste;
-    // ll3.imprimir();
+    // A. Operador “+”
+    Playlist soma_pl(playlist04 + playlist03);
+    soma_pl.imprimirTodasMusicas(soma_pl.getLista()->getPrimeira());
 
-    // g++ main.cpp util.cpp Lista.cpp Playlist.cpp -Wall -o prog && prog
-    // ------------------------------------------------
-    // do
-    // {
-    //     cout << opcoes << endl;
-    //     cin >> operacao;
+    // B. Operador “+” 
+    Musica musica01("Conselho Amigo", "Dorgival Dantas");
+    Playlist soma_m_p(playlist01 + musica01);
 
-    //     switch (operacao)
-    //     {
-    //     case 1:
-    //     {
-    //         cout << endl
-    //              << linha << endl;
-    //         cout << "Criar Playlist" << endl;
-    //         cout << linha << endl;
-    //         string nomePlaylist;
-    //         cout << "Digite o nome da Playlist: " << endl;
-    //         cin >> nomePlaylist;
-    //         Playlist *nova_playlist = new Playlist(nomePlaylist);
-    //         playlists.push_back(nova_playlist);
-    //         break;
-    //     }
-    //     case 2:
-    //     {
-    //         Playlist *playlist = qualPlaylist(playlists);
-    //         cout << endl
-    //              << linha << endl;
-    //         cout << "Adicionando musica" << endl;
-    //         cout << linha << endl;
+    Playlist playlist05;
+    playlist05.adicionarMusicaPlaylist("Flor de Tangerina", "Alceu Valenca");
+    playlist05.adicionarMusicaPlaylist("Girassol", "Alceu Valenca");
+    playlist05.adicionarMusicaPlaylist("La Belle de Jour", "Alceu Valenca");
+    playlist05.adicionarMusicaPlaylist("Valeu", "Dorgival Dantas");
+    
+    Playlist playlist06;
+    playlist06.adicionarMusicaPlaylist("La Belle de Jour", "Alceu Valenca");
+    playlist06.adicionarMusicaPlaylist("Valeu", "Dorgival Dantas");
 
-    //         string tituloDaMusica = lerTituloMusica();
-    //         string nomeDoArtista = lerNomeArtista();
+    // C. Operador “-”
+    Playlist sub_pl1(playlist05 - playlist06);
+    sub_pl1.imprimirTodasMusicas(sub_pl1.getLista()->getPrimeira());
 
-    //         playlist->adicionarMusicaPlaylist(tituloDaMusica, nomeDoArtista);
+    // D. Operador “-”
+    Musica musica02("Valeu", "Dorgival Dantas");
+    Playlist sub_pl2(playlist05 - musica02);
+    sub_pl2.imprimirTodasMusicas(sub_pl2.getLista()->getPrimeira());
 
-    //         break;
-    //     }
-    //     case 3:
-    //     {
-    //         cout << endl
-    //              << linha << endl;
-    //         cout << "Remover musica." << endl;
-    //         cout << "Lembrando que a musica sera removida de todas as playlists." << endl;
-    //         cout << linha << endl;
+    Musica musica03;
+    // E. Operador de extração “>>”
+    playlist06 >> musica03;
+    cout << musica03.getNome() << " " << musica03.getTitulo() << endl;
 
-    //         string tituloDaMusica = lerTituloMusica();
-    //         string nomeDoArtista = lerNomeArtista();
-
-    //         int tam = (int)playlists.size();
-    //         for (int i = 0; i < tam; i++)
-    //         {
-    //             playlists[i]->removerMusica(tituloDaMusica, nomeDoArtista);
-    //         }
-    //         break;
-    //     }
-    //     case 4:
-    //     {
-    //         cout << endl
-    //              << linha << endl;
-    //         cout << "Proxima musica" << endl;
-    //         cout << linha << endl;
-    //         Playlist *playlist = qualPlaylist(playlists);
-    //         Musica *musica = playlist->getProximaMusica(playlist->getLista()->getPrimeira());
-    //         cout << musica->getNome() << " - " << musica->getTitulo() << endl;
-    //         break;
-    //     }
-    //     case 5:
-    //     {
-    //         cout << endl
-    //              << linha << endl;
-    //         cout << "Imprimir todas as musica" << endl;
-    //         cout << linha << endl;
-    //         cout << "\nPlaylists salvas: " << endl;
-    //         imprimirTodasPlaylists(playlists);
-    //         cout << linha << endl;
-    //         cout << "Imprimindo todas as musicas" << endl;
-    //         Playlist *imprimir_playlist = qualPlaylist(playlists);
-    //         imprimir_playlist->imprimirTodasMusicas(imprimir_playlist->getLista()->getPrimeira());
-    //         break;
-    //     }
-    //     case 6:
-    //     {
-    //         cout << endl
-    //              << linha << endl;
-    //         cout << "Remover playlist" << endl;
-    //         cout << linha << endl;
-    //         imprimirTodasPlaylists(playlists);
-    //         vector<Playlist *> *ref_playlists = &playlists;
-    //         removerPlaylist(ref_playlists);
-    //     }
-    //     case 7:
-    //     {
-    //         cout << endl
-    //              << linha << endl;
-    //         cout << "Todas as playlists" << endl;
-    //         cout << linha << endl;
-    //         imprimirTodasPlaylists(playlists);
-    //     }
-    //     }
-    // } while (operacao != 0);
+    Musica musica04("Pra Voce Voltar Pra Mim", "Dorgival Dantas");
+    // F. Operador de inserção “<<”
+    playlist06 <<  musica04;
+    playlist06.imprimirTodasMusicas(playlist06.getLista()->getPrimeira());
 
     return 0;
 }

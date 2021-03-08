@@ -38,6 +38,8 @@ public:
     Playlist operator+(Musica &m);
     Playlist operator-(Playlist &p);
     Playlist operator-(Musica &m);
+    void operator>>(Musica &m);
+    void operator<<(Musica &m);
 };
 
 #endif

@@ -30,8 +30,14 @@ Lista::Lista(string nome, string titulo)
         * @param titulo - string - titulo da musica
         */
 Lista::Lista(const Lista& l) {
-    this->primeira = l.primeira;
-    this->ultima = l.ultima;
+    Lista* nova_lista = new Lista();
+    Musica* m = l.primeira;
+    while (m != NULL) {
+        nova_lista->inserirNoInicio(m->getNome(), m->getTitulo());
+        m = m->getProxima();
+    }
+    this->primeira = nova_lista->primeira;
+    this->ultima = nova_lista->getUltima();
 }
 
 /** Método para acessar a primeira Música
@@ -166,7 +172,6 @@ void Lista::remover(string nome, string titulo)
     Musica *anterior = new Musica();
     Musica *musica = new Musica();
     Musica *posterior = new Musica();
-    Musica *temporaria = new Musica();
 
     if (primeira->getNome().compare(nome) == 0 && primeira->getTitulo().compare(titulo) == 0)
     {
@@ -178,7 +183,7 @@ void Lista::remover(string nome, string titulo)
     }
     else
     {
-        cout << "AA" << endl;
+        // cout << "AA" << endl;
         musica = primeira->getProxima()->getProxima();
         anterior = musica;
         while (musica != NULL)
@@ -204,7 +209,7 @@ void Lista::remover(Lista &listaDeMusica)
         Musica *musica = primeira;
         Musica *anterior = musica;
         while (musica != NULL) {
-            cout << musica_excluir->getNome() << endl;
+            // cout << musica_excluir->getNome() << endl;
             if (musica->getNome().compare(musica_excluir->getNome()) == 0 
                 && musica->getTitulo().compare(musica_excluir->getTitulo()) == 0) {
                 if(musica->getNome().compare(anterior->getNome()) == 0 
@@ -226,8 +231,21 @@ void Lista::remover(Lista &listaDeMusica)
 Lista Lista::operator+(Lista &lista){
     // parcialmente feita
     Lista nova_lista;
-    nova_lista.setPrimeira(primeira);
-    nova_lista.getUltima()->setProxima(lista.getPrimeira());
+    Musica* m = primeira;
+    while (m != NULL) {
+        nova_lista.inserirNoInicio(m->getNome(), m->getTitulo());
+        m = m->getProxima();
+    }
+    
+    
+    Musica* m_1 = lista.getPrimeira();
+    Lista nova_lista1;
+    while (m_1 != NULL) {
+        nova_lista1.inserirNoInicio(m_1->getNome(), m_1->getTitulo());
+        m_1 = m_1->getProxima();
+    }
+
+    nova_lista.getUltima()->setProxima(nova_lista1.getPrimeira());
     return nova_lista;
 }
 

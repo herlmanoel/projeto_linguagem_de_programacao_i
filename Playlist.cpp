@@ -28,7 +28,8 @@ Playlist::Playlist(string nome)
 
 Playlist::Playlist(const Playlist& p) {
     this->nome = p.nome;
-    this->lista = p.lista;
+    Lista* nova_lista = p.lista;
+    this->lista = nova_lista;
 }
 
 /** Método para setar nome
@@ -185,4 +186,17 @@ Playlist Playlist::operator-(Musica &m) {
 
     // nova_lista->imprimir();
     return nova_playlist;
+}
+
+void Playlist::operator>>(Musica &m) {
+    if(lista->getPrimeira() != NULL) {
+        m.setNome(lista->getUltima()->getNome());
+        m.setTitulo(lista->getUltima()->getTitulo());
+        lista->removerUltima();
+    }
+}
+void Playlist::operator<<(Musica &m) {
+    if(lista->getPrimeira() != NULL) {
+        lista->getUltima()->setProxima(&m);
+    }
 }
