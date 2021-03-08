@@ -162,6 +162,7 @@ Musica* Lista::buscarPeloNomeTitulo(string nome, string titulo)
 */
 void Lista::remover(string nome, string titulo)
 {
+    
     Musica *anterior = new Musica();
     Musica *musica = new Musica();
     Musica *posterior = new Musica();
@@ -173,17 +174,16 @@ void Lista::remover(string nome, string titulo)
     }
     else if (primeira->getProxima()->getNome().compare(nome) == 0 && primeira->getProxima()->getTitulo().compare(titulo) == 0)
     {
-        temporaria = primeira->getProxima();
         primeira->setProxima(primeira->getProxima()->getProxima());
-        delete temporaria;
     }
     else
     {
+        cout << "AA" << endl;
         musica = primeira->getProxima()->getProxima();
         anterior = musica;
         while (musica != NULL)
         {
-            cout << musica->getNome() << endl;
+            // cout << musica->getNome() << endl;
             if (musica->getNome().compare(nome) == 0 && musica->getTitulo().compare(nome))
             {
                 posterior = musica->getProxima();

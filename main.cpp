@@ -74,15 +74,18 @@ int main()
     pl1.adicionarMusicaPlaylist("A", "A");
     Playlist pl2;
     pl2.adicionarMusicaPlaylist("B", "B");
-    pl2.adicionarMusicaPlaylist("B", "B");
+    pl2.adicionarMusicaPlaylist("K", "K");
     pl2.adicionarMusicaPlaylist("B", "B");
     Playlist pl3;
     pl3.adicionarMusicaPlaylist("C", "C");
     pl3.adicionarMusicaPlaylist("C", "C");
 
-    Playlist sub(pl1 - pl2);
-    cout << sub.getLista()->getPrimeira()->getNome() << endl;
-    sub.imprimirTodasMusicas(sub.getLista()->getPrimeira());
+    // Playlist sub(pl1 - pl2);
+    // cout << sub.getLista()->getPrimeira()->getNome() << endl;
+    // sub.imprimirTodasMusicas(sub.getLista()->getPrimeira());
+    Musica mumu("K", "K");
+    Playlist sub_mu(pl2 - mumu);
+    sub_mu.imprimirTodasMusicas(sub_mu.getLista()->getPrimeira());
 
     // Playlist soma(pl1 + pl2);
     // soma.imprimirTodasMusicas(soma.getLista()->getPrimeira());

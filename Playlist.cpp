@@ -173,12 +173,16 @@ Playlist Playlist::operator-(Playlist &p) {
 Playlist Playlist::operator-(Musica &m) {
     Playlist nova_playlist;
     Lista* nova_lista = nova_playlist.getLista();
-
+    
     Musica* m_p = lista->getPrimeira();
     while (m_p != NULL) {
         nova_lista->inserirNoInicio(m_p->getNome(), m_p->getTitulo());
         m_p = m_p->getProxima();
     }
-    nova_lista->getUltima()->setProxima(&m);
+
+    // nova_lista->imprimir();
+    nova_lista->remover(m.getNome(), m.getTitulo());
+
+    // nova_lista->imprimir();
     return nova_playlist;
 }
